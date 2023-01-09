@@ -1,4 +1,137 @@
-let data = [
+let queueData = [
+  {
+    id: 37,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 33,
+      },
+    ],
+  },
+  {
+    id: 38,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 34,
+      },
+    ],
+  },
+  {
+    id: 39,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 35,
+      },
+    ],
+  },
+  {
+    id: 42,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 36,
+      },
+    ],
+  },
+  {
+    id: 43,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 37,
+      },
+    ],
+  },
+  {
+    id: 40,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 38,
+      },
+    ],
+  },
+  {
+    id: 16,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 32,
+      },
+    ],
+  },
+  {
+    id: 48,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 39,
+      },
+    ],
+  },
+  {
+    id: 50,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 40,
+      },
+    ],
+  },
+  {
+    id: 51,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 41,
+      },
+      {
+        id: 42,
+      },
+    ],
+  },
+  {
+    id: 49,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 43,
+      },
+    ],
+  },
+  {
+    id: 47,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 44,
+      },
+    ],
+  },
+  {
+    id: 46,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 45,
+      },
+    ],
+  },
+  {
+    id: 41,
+    name: "Queue 4",
+    serviceRegions: [],
+  },
+  {
+    id: 45,
+    name: "Queue 1",
+    serviceRegions: [],
+  },
+];
+
+let personData: any = [
   {
     id: "1",
     topColor: "#191d7b",
@@ -801,34 +934,21 @@ let data = [
   },
 ];
 
-function addMinutes(date: Date, minutes: number) {
-  return new Date(date.getTime() + minutes * 60000);
-}
-
-for (let i = 0; i < data.length; ++i) {
-  let queueStartTime = new Date(data[i].queueStartTime);
-  let serviceStartTime: null | Date = null;
-  let serviceEndTime: null | Date = null;
-  let queueEndTime: string | null | Date = null;
-  let serviceStart = Math.floor(Math.random() * 2);
-  if (serviceStart) {
-    serviceStartTime = addMinutes(
-      queueStartTime,
-      Math.floor(Math.random() * 10)
-    );
-    serviceEndTime = addMinutes(
-      serviceStartTime,
-      Math.floor(Math.random() * 5)
-    );
-    queueEndTime = serviceEndTime;
+for (let i = 0; i < personData.length; ++i) {
+  console.log(personData);
+  let randomQueueIndex = Math.floor(Math.random() * queueData.length);
+  personData[i].queueID = queueData[randomQueueIndex].id;
+  let randomSR =
+    queueData[randomQueueIndex].serviceRegions[
+      Math.floor(
+        Math.random() * queueData[randomQueueIndex].serviceRegions.length
+      )
+    ];
+  if (randomSR) {
+    personData[i].serviceRegionId = randomSR.id;
   } else {
-    serviceStartTime = null;
-    serviceEndTime = null;
-    queueEndTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
+    personData[i].serviceRegionId = null;
   }
-
-  data[i]["serviceStartTime"] = serviceStartTime?.toISOString();
-  data[i]["serviceEndTime"] = serviceEndTime?.toISOString();
-  data[i]["queueEndTime"] = queueEndTime.toISOString();
 }
-console.log(data);
+
+console.log(personData);

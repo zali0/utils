@@ -1,4 +1,136 @@
-var data = [
+var queueData = [
+    {
+        id: 37,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 33
+            },
+        ]
+    },
+    {
+        id: 38,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 34
+            },
+        ]
+    },
+    {
+        id: 39,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 35
+            },
+        ]
+    },
+    {
+        id: 42,
+        name: "Queue 3",
+        serviceRegions: [
+            {
+                id: 36
+            },
+        ]
+    },
+    {
+        id: 43,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 37
+            },
+        ]
+    },
+    {
+        id: 40,
+        name: "Queue 3",
+        serviceRegions: [
+            {
+                id: 38
+            },
+        ]
+    },
+    {
+        id: 16,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 32
+            },
+        ]
+    },
+    {
+        id: 48,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 39
+            },
+        ]
+    },
+    {
+        id: 50,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 40
+            },
+        ]
+    },
+    {
+        id: 51,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 41
+            },
+            {
+                id: 42
+            },
+        ]
+    },
+    {
+        id: 49,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 43
+            },
+        ]
+    },
+    {
+        id: 47,
+        name: "Queue 3",
+        serviceRegions: [
+            {
+                id: 44
+            },
+        ]
+    },
+    {
+        id: 46,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 45
+            },
+        ]
+    },
+    {
+        id: 41,
+        name: "Queue 4",
+        serviceRegions: []
+    },
+    {
+        id: 45,
+        name: "Queue 1",
+        serviceRegions: []
+    },
+];
+var personData = [
     {
         id: "1",
         topColor: "#191d7b",
@@ -800,27 +932,16 @@ var data = [
         accessoriesList: "Laptop Bag"
     },
 ];
-function addMinutes(date, minutes) {
-    return new Date(date.getTime() + minutes * 60000);
-}
-for (var i = 0; i < data.length; ++i) {
-    var queueStartTime = new Date(data[i].queueStartTime);
-    var serviceStartTime = null;
-    var serviceEndTime = null;
-    var queueEndTime = null;
-    var serviceStart = Math.floor(Math.random() * 2);
-    if (serviceStart) {
-        serviceStartTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
-        serviceEndTime = addMinutes(serviceStartTime, Math.floor(Math.random() * 5));
-        queueEndTime = serviceEndTime;
+for (var i = 0; i < personData.length; ++i) {
+    console.log(personData);
+    var randomQueueIndex = Math.floor(Math.random() * queueData.length);
+    personData[i].queueID = queueData[randomQueueIndex].id;
+    var randomSR = queueData[randomQueueIndex].serviceRegions[Math.floor(Math.random() * queueData[randomQueueIndex].serviceRegions.length)];
+    if (randomSR) {
+        personData[i].serviceRegionId = randomSR.id;
     }
     else {
-        serviceStartTime = null;
-        serviceEndTime = null;
-        queueEndTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
+        personData[i].serviceRegionId = null;
     }
-    data[i]["serviceStartTime"] = serviceStartTime === null || serviceStartTime === void 0 ? void 0 : serviceStartTime.toISOString();
-    data[i]["serviceEndTime"] = serviceEndTime === null || serviceEndTime === void 0 ? void 0 : serviceEndTime.toISOString();
-    data[i]["queueEndTime"] = queueEndTime.toISOString();
 }
-console.log(data);
+console.log(personData);
