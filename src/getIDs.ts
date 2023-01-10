@@ -1,4 +1,137 @@
-let data = [
+let queueData = [
+  {
+    id: 37,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 33,
+      },
+    ],
+  },
+  {
+    id: 38,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 34,
+      },
+    ],
+  },
+  {
+    id: 39,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 35,
+      },
+    ],
+  },
+  {
+    id: 42,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 36,
+      },
+    ],
+  },
+  {
+    id: 43,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 37,
+      },
+    ],
+  },
+  {
+    id: 40,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 38,
+      },
+    ],
+  },
+  {
+    id: 16,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 32,
+      },
+    ],
+  },
+  {
+    id: 48,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 39,
+      },
+    ],
+  },
+  {
+    id: 50,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 40,
+      },
+    ],
+  },
+  {
+    id: 51,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 41,
+      },
+      {
+        id: 42,
+      },
+    ],
+  },
+  {
+    id: 49,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 43,
+      },
+    ],
+  },
+  {
+    id: 47,
+    name: "Queue 3",
+    serviceRegions: [
+      {
+        id: 44,
+      },
+    ],
+  },
+  {
+    id: 46,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 45,
+      },
+    ],
+  },
+  {
+    id: 41,
+    name: "Queue 4",
+    serviceRegions: [],
+  },
+  {
+    id: 45,
+    name: "Queue 1",
+    serviceRegions: [],
+  },
+];
+
+let personData: any = [
   {
     id: "1",
     topColor: "#191d7b",
@@ -6,6 +139,9 @@ let data = [
     ageRange: "70",
     queueStartTime: "2022-12-25T12:58:22Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-12-25T13:05:22.000Z",
+    serviceEndTime: "2022-12-25T13:10:22.000Z",
+    queueEndTime: "2022-12-25T13:10:22.000Z",
   },
   {
     id: "2",
@@ -14,6 +150,9 @@ let data = [
     ageRange: "17",
     queueStartTime: "2022-08-14T04:52:51Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-08-14T04:53:51.000Z",
   },
   {
     id: "3",
@@ -22,6 +161,9 @@ let data = [
     ageRange: "8",
     queueStartTime: "2022-07-07T10:44:36Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-07-07T10:48:36.000Z",
+    serviceEndTime: "2022-07-07T10:52:36.000Z",
+    queueEndTime: "2022-07-07T10:52:36.000Z",
   },
   {
     id: "4",
@@ -30,6 +172,9 @@ let data = [
     ageRange: "18",
     queueStartTime: "2022-02-03T04:25:25Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-02-03T04:32:25.000Z",
   },
   {
     id: "5",
@@ -38,6 +183,9 @@ let data = [
     ageRange: "54",
     queueStartTime: "2022-12-28T04:00:58Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-12-28T04:10:58.000Z",
   },
   {
     id: "6",
@@ -46,6 +194,9 @@ let data = [
     ageRange: "18",
     queueStartTime: "2022-02-16T11:37:45Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-02-16T11:43:45.000Z",
+    serviceEndTime: "2022-02-16T11:48:45.000Z",
+    queueEndTime: "2022-02-16T11:48:45.000Z",
   },
   {
     id: "7",
@@ -54,6 +205,9 @@ let data = [
     ageRange: "53",
     queueStartTime: "2023-01-07T15:30:30Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2023-01-07T15:38:30.000Z",
+    serviceEndTime: "2023-01-07T15:39:30.000Z",
+    queueEndTime: "2023-01-07T15:39:30.000Z",
   },
   {
     id: "8",
@@ -62,6 +216,9 @@ let data = [
     ageRange: "62",
     queueStartTime: "2022-07-01T17:21:20Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-01T17:30:20.000Z",
   },
   {
     id: "9",
@@ -70,6 +227,9 @@ let data = [
     ageRange: "68",
     queueStartTime: "2022-02-22T16:41:22Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-02-22T16:46:22.000Z",
+    serviceEndTime: "2022-02-22T16:47:22.000Z",
+    queueEndTime: "2022-02-22T16:47:22.000Z",
   },
   {
     id: "10",
@@ -78,6 +238,9 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-12-17T03:02:03Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-12-17T03:04:03.000Z",
+    serviceEndTime: "2022-12-17T03:07:03.000Z",
+    queueEndTime: "2022-12-17T03:07:03.000Z",
   },
   {
     id: "11",
@@ -86,6 +249,9 @@ let data = [
     ageRange: "77",
     queueStartTime: "2022-10-02T05:04:26Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-10-02T05:06:26.000Z",
   },
   {
     id: "12",
@@ -94,6 +260,9 @@ let data = [
     ageRange: "54",
     queueStartTime: "2022-04-19T05:20:09Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-04-19T05:28:09.000Z",
   },
   {
     id: "13",
@@ -102,6 +271,9 @@ let data = [
     ageRange: "6",
     queueStartTime: "2022-11-04T13:35:45Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-11-04T13:37:45.000Z",
+    serviceEndTime: "2022-11-04T13:39:45.000Z",
+    queueEndTime: "2022-11-04T13:39:45.000Z",
   },
   {
     id: "14",
@@ -110,6 +282,9 @@ let data = [
     ageRange: "75",
     queueStartTime: "2022-01-16T07:10:46Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-01-16T07:19:46.000Z",
+    serviceEndTime: "2022-01-16T07:20:46.000Z",
+    queueEndTime: "2022-01-16T07:20:46.000Z",
   },
   {
     id: "15",
@@ -118,6 +293,9 @@ let data = [
     ageRange: "35",
     queueStartTime: "2022-10-10T01:16:52Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-10-10T01:26:52.000Z",
+    serviceEndTime: "2022-10-10T01:27:52.000Z",
+    queueEndTime: "2022-10-10T01:27:52.000Z",
   },
   {
     id: "16",
@@ -126,6 +304,9 @@ let data = [
     ageRange: "28",
     queueStartTime: "2022-10-30T06:28:46Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-10-30T06:29:46.000Z",
+    serviceEndTime: "2022-10-30T06:33:46.000Z",
+    queueEndTime: "2022-10-30T06:33:46.000Z",
   },
   {
     id: "17",
@@ -134,6 +315,9 @@ let data = [
     ageRange: "58",
     queueStartTime: "2022-05-26T13:30:34Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-05-26T13:38:34.000Z",
   },
   {
     id: "18",
@@ -142,6 +326,9 @@ let data = [
     ageRange: "20",
     queueStartTime: "2022-05-27T01:48:41Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-05-27T01:56:41.000Z",
+    serviceEndTime: "2022-05-27T02:01:41.000Z",
+    queueEndTime: "2022-05-27T02:01:41.000Z",
   },
   {
     id: "19",
@@ -150,6 +337,9 @@ let data = [
     ageRange: "38",
     queueStartTime: "2022-03-25T05:57:59Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-25T05:59:59.000Z",
   },
   {
     id: "20",
@@ -158,6 +348,9 @@ let data = [
     ageRange: "39",
     queueStartTime: "2022-09-20T13:57:59Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-09-20T14:04:59.000Z",
+    serviceEndTime: "2022-09-20T14:06:59.000Z",
+    queueEndTime: "2022-09-20T14:06:59.000Z",
   },
   {
     id: "21",
@@ -166,6 +359,9 @@ let data = [
     ageRange: "69",
     queueStartTime: "2022-06-13T19:06:11Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-06-13T19:09:11.000Z",
   },
   {
     id: "22",
@@ -174,6 +370,9 @@ let data = [
     ageRange: "17",
     queueStartTime: "2022-10-12T15:15:50Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-10-12T15:16:50.000Z",
+    serviceEndTime: "2022-10-12T15:21:50.000Z",
+    queueEndTime: "2022-10-12T15:21:50.000Z",
   },
   {
     id: "23",
@@ -182,6 +381,9 @@ let data = [
     ageRange: "80",
     queueStartTime: "2022-04-20T02:05:44Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-04-20T02:06:44.000Z",
+    serviceEndTime: "2022-04-20T02:11:44.000Z",
+    queueEndTime: "2022-04-20T02:11:44.000Z",
   },
   {
     id: "24",
@@ -190,6 +392,9 @@ let data = [
     ageRange: "42",
     queueStartTime: "2022-04-28T08:33:41Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-04-28T08:35:41.000Z",
+    serviceEndTime: "2022-04-28T08:37:41.000Z",
+    queueEndTime: "2022-04-28T08:37:41.000Z",
   },
   {
     id: "25",
@@ -198,6 +403,9 @@ let data = [
     ageRange: "61",
     queueStartTime: "2022-07-02T00:38:01Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-07-02T00:47:01.000Z",
+    serviceEndTime: "2022-07-02T00:51:01.000Z",
+    queueEndTime: "2022-07-02T00:51:01.000Z",
   },
   {
     id: "26",
@@ -206,6 +414,9 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-12-22T11:29:33Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-12-22T11:39:33.000Z",
   },
   {
     id: "27",
@@ -214,6 +425,9 @@ let data = [
     ageRange: "54",
     queueStartTime: "2022-02-05T16:24:32Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-02-05T16:28:32.000Z",
+    serviceEndTime: "2022-02-05T16:30:32.000Z",
+    queueEndTime: "2022-02-05T16:30:32.000Z",
   },
   {
     id: "28",
@@ -222,6 +436,9 @@ let data = [
     ageRange: "64",
     queueStartTime: "2022-10-25T15:38:05Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-10-25T15:46:05.000Z",
+    serviceEndTime: "2022-10-25T15:50:05.000Z",
+    queueEndTime: "2022-10-25T15:50:05.000Z",
   },
   {
     id: "29",
@@ -230,6 +447,9 @@ let data = [
     ageRange: "8",
     queueStartTime: "2022-07-30T11:05:27Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-30T11:09:27.000Z",
   },
   {
     id: "30",
@@ -238,6 +458,9 @@ let data = [
     ageRange: "74",
     queueStartTime: "2022-03-13T17:57:05Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-03-13T18:03:05.000Z",
+    serviceEndTime: "2022-03-13T18:07:05.000Z",
+    queueEndTime: "2022-03-13T18:07:05.000Z",
   },
   {
     id: "31",
@@ -246,6 +469,9 @@ let data = [
     ageRange: "13",
     queueStartTime: "2022-01-13T13:57:23Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-01-13T14:02:23.000Z",
+    serviceEndTime: "2022-01-13T14:06:23.000Z",
+    queueEndTime: "2022-01-13T14:06:23.000Z",
   },
   {
     id: "32",
@@ -254,6 +480,9 @@ let data = [
     ageRange: "41",
     queueStartTime: "2022-11-11T00:50:58Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-11-11T00:53:58.000Z",
+    serviceEndTime: "2022-11-11T00:57:58.000Z",
+    queueEndTime: "2022-11-11T00:57:58.000Z",
   },
   {
     id: "33",
@@ -262,6 +491,9 @@ let data = [
     ageRange: "49",
     queueStartTime: "2022-06-19T14:52:46Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-06-19T14:54:46.000Z",
   },
   {
     id: "34",
@@ -270,6 +502,9 @@ let data = [
     ageRange: "20",
     queueStartTime: "2022-02-22T15:48:12Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-02-22T15:57:12.000Z",
   },
   {
     id: "35",
@@ -278,6 +513,9 @@ let data = [
     ageRange: "30",
     queueStartTime: "2022-02-17T15:35:11Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-02-17T15:39:11.000Z",
+    serviceEndTime: "2022-02-17T15:42:11.000Z",
+    queueEndTime: "2022-02-17T15:42:11.000Z",
   },
   {
     id: "36",
@@ -286,6 +524,9 @@ let data = [
     ageRange: "56",
     queueStartTime: "2022-08-27T16:15:41Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-08-27T16:24:41.000Z",
+    serviceEndTime: "2022-08-27T16:26:41.000Z",
+    queueEndTime: "2022-08-27T16:26:41.000Z",
   },
   {
     id: "37",
@@ -294,6 +535,9 @@ let data = [
     ageRange: "63",
     queueStartTime: "2022-08-04T13:19:44Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-08-04T13:26:44.000Z",
   },
   {
     id: "38",
@@ -302,6 +546,9 @@ let data = [
     ageRange: "76",
     queueStartTime: "2022-02-03T23:44:49Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-02-03T23:48:49.000Z",
+    serviceEndTime: "2022-02-03T23:49:49.000Z",
+    queueEndTime: "2022-02-03T23:49:49.000Z",
   },
   {
     id: "39",
@@ -310,6 +557,9 @@ let data = [
     ageRange: "68",
     queueStartTime: "2022-01-14T22:22:56Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-01-14T22:30:56.000Z",
+    serviceEndTime: "2022-01-14T22:34:56.000Z",
+    queueEndTime: "2022-01-14T22:34:56.000Z",
   },
   {
     id: "40",
@@ -318,6 +568,9 @@ let data = [
     ageRange: "19",
     queueStartTime: "2022-04-10T13:00:11Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-04-10T13:02:11.000Z",
+    serviceEndTime: "2022-04-10T13:07:11.000Z",
+    queueEndTime: "2022-04-10T13:07:11.000Z",
   },
   {
     id: "41",
@@ -326,6 +579,9 @@ let data = [
     ageRange: "22",
     queueStartTime: "2022-07-20T18:48:31Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-20T18:53:31.000Z",
   },
   {
     id: "42",
@@ -334,6 +590,9 @@ let data = [
     ageRange: "63",
     queueStartTime: "2022-09-25T10:59:49Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-25T11:01:49.000Z",
   },
   {
     id: "43",
@@ -342,6 +601,9 @@ let data = [
     ageRange: "52",
     queueStartTime: "2022-07-26T12:29:39Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-26T12:32:39.000Z",
   },
   {
     id: "44",
@@ -350,6 +612,9 @@ let data = [
     ageRange: "50",
     queueStartTime: "2022-07-16T20:17:27Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-07-16T20:26:27.000Z",
+    serviceEndTime: "2022-07-16T20:29:27.000Z",
+    queueEndTime: "2022-07-16T20:29:27.000Z",
   },
   {
     id: "45",
@@ -358,6 +623,9 @@ let data = [
     ageRange: "32",
     queueStartTime: "2022-09-13T12:48:09Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-13T12:54:09.000Z",
   },
   {
     id: "46",
@@ -366,6 +634,9 @@ let data = [
     ageRange: "43",
     queueStartTime: "2022-05-01T17:10:19Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-05-01T17:14:19.000Z",
+    serviceEndTime: "2022-05-01T17:19:19.000Z",
+    queueEndTime: "2022-05-01T17:19:19.000Z",
   },
   {
     id: "47",
@@ -374,6 +645,9 @@ let data = [
     ageRange: "18",
     queueStartTime: "2022-03-12T07:28:43Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-12T07:35:43.000Z",
   },
   {
     id: "48",
@@ -382,6 +656,9 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-11-24T08:55:37Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-11-24T08:58:37.000Z",
+    serviceEndTime: "2022-11-24T09:00:37.000Z",
+    queueEndTime: "2022-11-24T09:00:37.000Z",
   },
   {
     id: "49",
@@ -390,6 +667,9 @@ let data = [
     ageRange: "6",
     queueStartTime: "2022-09-25T16:36:14Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-25T16:42:14.000Z",
   },
   {
     id: "50",
@@ -398,6 +678,9 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-09-06T10:42:31Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-06T10:45:31.000Z",
   },
   {
     id: "51",
@@ -406,6 +689,9 @@ let data = [
     ageRange: "64",
     queueStartTime: "2022-03-26T04:08:39Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-03-26T04:11:39.000Z",
+    serviceEndTime: "2022-03-26T04:12:39.000Z",
+    queueEndTime: "2022-03-26T04:12:39.000Z",
   },
   {
     id: "52",
@@ -414,6 +700,9 @@ let data = [
     ageRange: "54",
     queueStartTime: "2022-04-12T21:50:07Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-04-12T21:55:07.000Z",
   },
   {
     id: "53",
@@ -422,6 +711,9 @@ let data = [
     ageRange: "13",
     queueStartTime: "2022-01-12T12:34:41Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-01-12T12:36:41.000Z",
   },
   {
     id: "54",
@@ -430,6 +722,9 @@ let data = [
     ageRange: "9",
     queueStartTime: "2022-11-09T16:28:55Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-11-09T16:33:55.000Z",
+    serviceEndTime: "2022-11-09T16:34:55.000Z",
+    queueEndTime: "2022-11-09T16:34:55.000Z",
   },
   {
     id: "55",
@@ -438,6 +733,9 @@ let data = [
     ageRange: "16",
     queueStartTime: "2022-09-14T20:38:47Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-09-14T20:46:47.000Z",
+    serviceEndTime: "2022-09-14T20:48:47.000Z",
+    queueEndTime: "2022-09-14T20:48:47.000Z",
   },
   {
     id: "56",
@@ -446,6 +744,9 @@ let data = [
     ageRange: "15",
     queueStartTime: "2022-07-29T17:14:00Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-29T17:18:00.000Z",
   },
   {
     id: "57",
@@ -454,6 +755,9 @@ let data = [
     ageRange: "26",
     queueStartTime: "2022-02-09T10:38:05Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-02-09T10:43:05.000Z",
   },
   {
     id: "58",
@@ -462,6 +766,9 @@ let data = [
     ageRange: "71",
     queueStartTime: "2022-03-10T19:22:20Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-10T19:25:20.000Z",
   },
   {
     id: "59",
@@ -470,6 +777,9 @@ let data = [
     ageRange: "58",
     queueStartTime: "2022-08-01T15:38:10Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-08-01T15:43:10.000Z",
+    serviceEndTime: "2022-08-01T15:46:10.000Z",
+    queueEndTime: "2022-08-01T15:46:10.000Z",
   },
   {
     id: "60",
@@ -478,6 +788,9 @@ let data = [
     ageRange: "56",
     queueStartTime: "2022-04-21T13:26:27Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-04-21T13:36:27.000Z",
+    serviceEndTime: "2022-04-21T13:37:27.000Z",
+    queueEndTime: "2022-04-21T13:37:27.000Z",
   },
   {
     id: "61",
@@ -486,6 +799,9 @@ let data = [
     ageRange: "52",
     queueStartTime: "2022-03-02T03:59:33Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-02T04:04:33.000Z",
   },
   {
     id: "62",
@@ -494,6 +810,9 @@ let data = [
     ageRange: "42",
     queueStartTime: "2022-02-04T21:11:03Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-02-04T21:14:03.000Z",
   },
   {
     id: "63",
@@ -502,6 +821,9 @@ let data = [
     ageRange: "79",
     queueStartTime: "2022-02-21T04:45:11Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-02-21T04:51:11.000Z",
   },
   {
     id: "64",
@@ -510,6 +832,9 @@ let data = [
     ageRange: "65",
     queueStartTime: "2022-03-28T22:23:02Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-28T22:25:02.000Z",
   },
   {
     id: "65",
@@ -518,6 +843,9 @@ let data = [
     ageRange: "52",
     queueStartTime: "2022-11-14T09:59:47Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-11-14T10:03:47.000Z",
+    serviceEndTime: "2022-11-14T10:08:47.000Z",
+    queueEndTime: "2022-11-14T10:08:47.000Z",
   },
   {
     id: "66",
@@ -526,6 +854,9 @@ let data = [
     ageRange: "34",
     queueStartTime: "2022-03-17T03:51:27Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-17T03:55:27.000Z",
   },
   {
     id: "67",
@@ -534,6 +865,9 @@ let data = [
     ageRange: "75",
     queueStartTime: "2022-07-25T20:23:08Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-07-25T20:27:08.000Z",
+    serviceEndTime: "2022-07-25T20:28:08.000Z",
+    queueEndTime: "2022-07-25T20:28:08.000Z",
   },
   {
     id: "68",
@@ -542,6 +876,9 @@ let data = [
     ageRange: "25",
     queueStartTime: "2022-03-03T09:16:51Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-03T09:25:51.000Z",
   },
   {
     id: "69",
@@ -550,6 +887,9 @@ let data = [
     ageRange: "49",
     queueStartTime: "2022-03-23T14:38:28Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-23T14:48:28.000Z",
   },
   {
     id: "70",
@@ -558,6 +898,9 @@ let data = [
     ageRange: "19",
     queueStartTime: "2022-03-17T12:02:17Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: "2022-03-17T12:06:17.000Z",
+    serviceEndTime: "2022-03-17T12:11:17.000Z",
+    queueEndTime: "2022-03-17T12:11:17.000Z",
   },
   {
     id: "71",
@@ -566,6 +909,9 @@ let data = [
     ageRange: "8",
     queueStartTime: "2022-11-09T15:13:15Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-11-09T15:15:15.000Z",
+    serviceEndTime: "2022-11-09T15:20:15.000Z",
+    queueEndTime: "2022-11-09T15:20:15.000Z",
   },
   {
     id: "72",
@@ -574,6 +920,9 @@ let data = [
     ageRange: "52",
     queueStartTime: "2022-08-06T02:00:14Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-08-06T02:02:14.000Z",
   },
   {
     id: "73",
@@ -582,6 +931,9 @@ let data = [
     ageRange: "44",
     queueStartTime: "2022-03-18T23:27:25Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-18T23:31:25.000Z",
   },
   {
     id: "74",
@@ -590,6 +942,9 @@ let data = [
     ageRange: "59",
     queueStartTime: "2022-09-07T11:11:24Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-07T11:13:24.000Z",
   },
   {
     id: "75",
@@ -598,6 +953,9 @@ let data = [
     ageRange: "35",
     queueStartTime: "2022-01-31T13:38:43Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-01-31T13:44:43.000Z",
+    serviceEndTime: "2022-01-31T13:47:43.000Z",
+    queueEndTime: "2022-01-31T13:47:43.000Z",
   },
   {
     id: "76",
@@ -606,6 +964,9 @@ let data = [
     ageRange: "70",
     queueStartTime: "2022-11-07T20:56:27Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-11-07T20:58:27.000Z",
+    serviceEndTime: "2022-11-07T21:01:27.000Z",
+    queueEndTime: "2022-11-07T21:01:27.000Z",
   },
   {
     id: "77",
@@ -614,6 +975,9 @@ let data = [
     ageRange: "12",
     queueStartTime: "2022-11-26T08:05:59Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-11-26T08:09:59.000Z",
   },
   {
     id: "78",
@@ -622,6 +986,9 @@ let data = [
     ageRange: "32",
     queueStartTime: "2022-09-01T00:49:01Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-09-01T00:58:01.000Z",
   },
   {
     id: "79",
@@ -630,6 +997,9 @@ let data = [
     ageRange: "46",
     queueStartTime: "2022-09-20T15:10:46Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-09-20T15:11:46.000Z",
+    serviceEndTime: "2022-09-20T15:16:46.000Z",
+    queueEndTime: "2022-09-20T15:16:46.000Z",
   },
   {
     id: "80",
@@ -638,6 +1008,9 @@ let data = [
     ageRange: "14",
     queueStartTime: "2022-06-11T05:20:56Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-06-11T05:29:56.000Z",
   },
   {
     id: "81",
@@ -646,6 +1019,9 @@ let data = [
     ageRange: "12",
     queueStartTime: "2022-04-23T11:07:20Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-04-23T11:15:20.000Z",
   },
   {
     id: "82",
@@ -654,6 +1030,9 @@ let data = [
     ageRange: "72",
     queueStartTime: "2022-12-02T18:15:31Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-12-02T18:25:31.000Z",
   },
   {
     id: "83",
@@ -662,6 +1041,9 @@ let data = [
     ageRange: "26",
     queueStartTime: "2022-01-11T22:17:37Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-01-11T22:20:37.000Z",
   },
   {
     id: "84",
@@ -670,6 +1052,9 @@ let data = [
     ageRange: "58",
     queueStartTime: "2022-08-25T10:32:02Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-08-25T10:39:02.000Z",
   },
   {
     id: "85",
@@ -678,6 +1063,9 @@ let data = [
     ageRange: "69",
     queueStartTime: "2022-03-14T18:03:43Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-03-14T18:09:43.000Z",
+    serviceEndTime: "2022-03-14T18:13:43.000Z",
+    queueEndTime: "2022-03-14T18:13:43.000Z",
   },
   {
     id: "86",
@@ -686,6 +1074,9 @@ let data = [
     ageRange: "25",
     queueStartTime: "2022-12-26T08:43:04Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-12-26T08:52:04.000Z",
   },
   {
     id: "87",
@@ -694,6 +1085,9 @@ let data = [
     ageRange: "59",
     queueStartTime: "2022-09-06T13:37:19Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-09-06T13:46:19.000Z",
+    serviceEndTime: "2022-09-06T13:48:19.000Z",
+    queueEndTime: "2022-09-06T13:48:19.000Z",
   },
   {
     id: "88",
@@ -702,6 +1096,9 @@ let data = [
     ageRange: "37",
     queueStartTime: "2022-04-09T04:09:01Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-04-09T04:11:01.000Z",
+    serviceEndTime: "2022-04-09T04:13:01.000Z",
+    queueEndTime: "2022-04-09T04:13:01.000Z",
   },
   {
     id: "89",
@@ -710,6 +1107,9 @@ let data = [
     ageRange: "18",
     queueStartTime: "2022-03-12T17:31:13Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-03-12T17:41:13.000Z",
   },
   {
     id: "90",
@@ -718,6 +1118,9 @@ let data = [
     ageRange: "36",
     queueStartTime: "2022-05-03T04:39:03Z",
     accessoriesList: "Backpack",
+    serviceStartTime: "2022-05-03T04:42:03.000Z",
+    serviceEndTime: "2022-05-03T04:43:03.000Z",
+    queueEndTime: "2022-05-03T04:43:03.000Z",
   },
   {
     id: "91",
@@ -726,6 +1129,9 @@ let data = [
     ageRange: "63",
     queueStartTime: "2022-07-13T20:30:38Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-07-13T20:32:38.000Z",
   },
   {
     id: "92",
@@ -734,6 +1140,9 @@ let data = [
     ageRange: "65",
     queueStartTime: "2022-02-03T09:30:21Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-02-03T09:37:21.000Z",
+    serviceEndTime: "2022-02-03T09:41:21.000Z",
+    queueEndTime: "2022-02-03T09:41:21.000Z",
   },
   {
     id: "93",
@@ -742,6 +1151,9 @@ let data = [
     ageRange: "80",
     queueStartTime: "2022-05-02T18:55:20Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-05-02T19:02:20.000Z",
   },
   {
     id: "94",
@@ -750,6 +1162,9 @@ let data = [
     ageRange: "14",
     queueStartTime: "2022-12-27T15:18:21Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-12-27T15:28:21.000Z",
   },
   {
     id: "95",
@@ -758,6 +1173,9 @@ let data = [
     ageRange: "55",
     queueStartTime: "2022-05-29T03:10:45Z",
     accessoriesList: "Backpack",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-05-29T03:12:45.000Z",
   },
   {
     id: "96",
@@ -766,6 +1184,9 @@ let data = [
     ageRange: "22",
     queueStartTime: "2022-06-28T06:55:33Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-06-28T07:02:33.000Z",
   },
   {
     id: "97",
@@ -774,6 +1195,9 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-02-08T18:19:44Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-02-08T18:24:44.000Z",
+    serviceEndTime: "2022-02-08T18:27:44.000Z",
+    queueEndTime: "2022-02-08T18:27:44.000Z",
   },
   {
     id: "98",
@@ -782,6 +1206,9 @@ let data = [
     ageRange: "75",
     queueStartTime: "2022-06-19T17:49:41Z",
     accessoriesList: "Cap",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-06-19T17:53:41.000Z",
   },
   {
     id: "99",
@@ -790,6 +1217,9 @@ let data = [
     ageRange: "51",
     queueStartTime: "2022-08-20T01:26:57Z",
     accessoriesList: "Cap",
+    serviceStartTime: "2022-08-20T01:36:57.000Z",
+    serviceEndTime: "2022-08-20T01:39:57.000Z",
+    queueEndTime: "2022-08-20T01:39:57.000Z",
   },
   {
     id: "100",
@@ -798,37 +1228,36 @@ let data = [
     ageRange: "66",
     queueStartTime: "2022-05-13T18:13:40Z",
     accessoriesList: "Laptop Bag",
+    serviceStartTime: null,
+    serviceEndTime: null,
+    queueEndTime: "2022-05-13T18:20:40.000Z",
   },
 ];
 
-function addMinutes(date: Date, minutes: number) {
-  return new Date(date.getTime() + minutes * 60000);
-}
-
-for (let i = 0; i < data.length; ++i) {
-  let queueStartTime = new Date(data[i].queueStartTime);
-  let serviceStartTime: null | Date = null;
-  let serviceEndTime: null | Date = null;
-  let queueEndTime: string | null | Date = null;
-  let serviceStart = Math.floor(Math.random() * 2);
-  if (serviceStart) {
-    serviceStartTime = addMinutes(
-      queueStartTime,
-      Math.floor(Math.random() * 10)
-    );
-    serviceEndTime = addMinutes(
-      serviceStartTime,
-      Math.floor(Math.random() * 5)
-    );
-    queueEndTime = serviceEndTime;
-  } else {
-    serviceStartTime = null;
-    serviceEndTime = null;
-    queueEndTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
+for (let i = 0; i < personData.length; ++i) {
+  let randomQueueIndex = Math.floor(Math.random() * queueData.length);
+  personData[i].queueID = queueData[randomQueueIndex].id;
+  if (!queueData[randomQueueIndex].serviceRegions.length) {
+    personData[i].serviceStartTime = null;
+    personData[i].serviceEndTime = null;
+    personData[i].serviceRegionId = null;
+    continue;
   }
-
-  data[i]["serviceStartTime"] = serviceStartTime?.toISOString();
-  data[i]["serviceEndTime"] = serviceEndTime?.toISOString();
-  data[i]["queueEndTime"] = queueEndTime.toISOString();
+  if (personData[i].serviceStartTime == null) {
+    personData[i].serviceRegionId = null;
+    continue;
+  }
+  let randomSR =
+    queueData[randomQueueIndex].serviceRegions[
+      Math.floor(
+        Math.random() * queueData[randomQueueIndex].serviceRegions.length
+      )
+    ];
+  if (randomSR) {
+    personData[i].serviceRegionId = randomSR.id;
+  } else {
+    personData[i].serviceRegionId = null;
+  }
 }
-console.log(data);
+
+console.log(personData);

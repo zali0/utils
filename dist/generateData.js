@@ -803,6 +803,11 @@ var data = [
 function addMinutes(date, minutes) {
     return new Date(date.getTime() + minutes * 60000);
 }
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
 for (var i = 0; i < data.length; ++i) {
     var queueStartTime = new Date(data[i].queueStartTime);
     var serviceStartTime = null;
@@ -810,17 +815,21 @@ for (var i = 0; i < data.length; ++i) {
     var queueEndTime = null;
     var serviceStart = Math.floor(Math.random() * 2);
     if (serviceStart) {
-        serviceStartTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
-        serviceEndTime = addMinutes(serviceStartTime, Math.floor(Math.random() * 5));
+        serviceStartTime = addMinutes(queueStartTime, getRandomInt(1, 11) // 1 to 10 minutes
+        );
+        serviceEndTime = addMinutes(serviceStartTime, getRandomInt(1, 6) // 1 to 5 minutes
+        );
         queueEndTime = serviceEndTime;
     }
     else {
         serviceStartTime = null;
         serviceEndTime = null;
-        queueEndTime = addMinutes(queueStartTime, Math.floor(Math.random() * 10));
+        queueEndTime = addMinutes(queueStartTime, getRandomInt(1, 11));
     }
-    data[i]["serviceStartTime"] = serviceStartTime === null || serviceStartTime === void 0 ? void 0 : serviceStartTime.toISOString();
-    data[i]["serviceEndTime"] = serviceEndTime === null || serviceEndTime === void 0 ? void 0 : serviceEndTime.toISOString();
+    data[i]["serviceStartTime"] =
+        serviceStartTime == null ? null : serviceStartTime === null || serviceStartTime === void 0 ? void 0 : serviceStartTime.toISOString();
+    data[i]["serviceEndTime"] =
+        serviceEndTime == null ? null : serviceEndTime === null || serviceEndTime === void 0 ? void 0 : serviceEndTime.toISOString();
     data[i]["queueEndTime"] = queueEndTime.toISOString();
 }
 console.log(data);
