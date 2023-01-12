@@ -1,3 +1,0 @@
-
-INSERT INTO persons(id,"topColor","bottomColor","ageRange","queueStartTime","accessoriesList","serviceStartTime","serviceEndTime", "queueEndTime","queueId","serviceRegionId", "createdAt", "updatedAt") 
-VALUES (1,'#191d7b','#519c47','70','2022-12-25T12:58:22Z','{"Cap"}','2022-12-25T13:05:22.000Z','2022-12-25T13:10:22.000Z','2022-12-25T13:10:22.000Z',40,38,'2023-01-11T10:12:54.808Z','2023-01-11T10:12:54.808Z')
