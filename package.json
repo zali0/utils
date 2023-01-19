@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "pdf-officegen": "^3.0.0",
+    "pdf2svg": "^0.1.2"
+  }
+}
