@@ -1,28 +1,10 @@
 let queueData = [
   {
-    id: 5,
-    name: "Queue 3",
-    serviceRegions: [
-      {
-        id: 1
-      }
-    ]
-  },
-  {
     id: 2,
-    name: "Queue 2",
-    serviceRegions: [
-      {
-        id: 13
-      }
-    ]
-  },
-  {
-    id: 1,
     name: "Queue 1",
     serviceRegions: [
       {
-        id: 15
+        id: 4
       }
     ]
   },
@@ -31,7 +13,16 @@ let queueData = [
     name: "Queue 2",
     serviceRegions: [
       {
-        id: 16
+        id: 5
+      }
+    ]
+  },
+  {
+    id: 5,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 8
       }
     ]
   },
@@ -40,7 +31,7 @@ let queueData = [
     name: "Queue 1",
     serviceRegions: [
       {
-        id: 17
+        id: 9
       }
     ]
   },
@@ -49,9 +40,42 @@ let queueData = [
     name: "Queue 1",
     serviceRegions: [
       {
-        id: 18
+        id: 10
       }
     ]
+  },
+  {
+    id: 8,
+    name: "Queue 1",
+    serviceRegions: [
+      {
+        id: 11
+      }
+    ]
+  },
+  {
+    id: 11,
+    name: "Queue 2",
+    serviceRegions: [
+      {
+        id: 12
+      }
+    ]
+  },
+  {
+    id: 10,
+    name: "Queue 1",
+    serviceRegions: []
+  },
+  {
+    id: 9,
+    name: "Queue 2",
+    serviceRegions: []
+  },
+  {
+    id: 7,
+    name: "Queue 2",
+    serviceRegions: []
   }
 ];
 

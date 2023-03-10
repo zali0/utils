@@ -1,82 +1,82 @@
 var queueData = [
-  {
-    id: 2,
-    name: "Queue 1",
-    serviceRegions: [
-      {
-        id: 4
-      }
-    ]
-  },
-  {
-    id: 4,
-    name: "Queue 2",
-    serviceRegions: [
-      {
-        id: 5
-      }
-    ]
-  },
-  {
-    id: 5,
-    name: "Queue 2",
-    serviceRegions: [
-      {
-        id: 8
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: "Queue 1",
-    serviceRegions: [
-      {
-        id: 9
-      }
-    ]
-  },
-  {
-    id: 6,
-    name: "Queue 1",
-    serviceRegions: [
-      {
-        id: 10
-      }
-    ]
-  },
-  {
-    id: 8,
-    name: "Queue 1",
-    serviceRegions: [
-      {
-        id: 11
-      }
-    ]
-  },
-  {
-    id: 11,
-    name: "Queue 2",
-    serviceRegions: [
-      {
-        id: 12
-      }
-    ]
-  },
-  {
-    id: 10,
-    name: "Queue 1",
-    serviceRegions: []
-  },
-  {
-    id: 9,
-    name: "Queue 2",
-    serviceRegions: []
-  },
-  {
-    id: 7,
-    name: "Queue 2",
-    serviceRegions: []
-  }
+    {
+        id: 2,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 4
+            }
+        ]
+    },
+    {
+        id: 4,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 5
+            }
+        ]
+    },
+    {
+        id: 5,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 8
+            }
+        ]
+    },
+    {
+        id: 3,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 9
+            }
+        ]
+    },
+    {
+        id: 6,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 10
+            }
+        ]
+    },
+    {
+        id: 8,
+        name: "Queue 1",
+        serviceRegions: [
+            {
+                id: 11
+            }
+        ]
+    },
+    {
+        id: 11,
+        name: "Queue 2",
+        serviceRegions: [
+            {
+                id: 12
+            }
+        ]
+    },
+    {
+        id: 10,
+        name: "Queue 1",
+        serviceRegions: []
+    },
+    {
+        id: 9,
+        name: "Queue 2",
+        serviceRegions: []
+    },
+    {
+        id: 7,
+        name: "Queue 2",
+        serviceRegions: []
+    }
 ];
 var personData = [
     {
@@ -1236,7 +1236,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 for (var i = 0; i < personData.length; ++i) {
-    var id = personData[i].id+1000;
+    var id = personData[i].id + 1000;
     var topColor = personData[i].topColor;
     var bottomColor = personData[i].bottomColor;
     var ageRange = personData[i].ageRange;
@@ -1253,10 +1253,10 @@ for (var i = 0; i < personData.length; ++i) {
     var createdAt = personData[i].createdAt;
     var updatedAt = personData[i].updatedAt;
     queueStartTime = queueStartTime.toISOString();
-
     // VALUES (1,'#191d7b','#519c47','70','2022-12-25T12:58:22Z','{"Cap"}','2022-12-25T13:05:22.000Z','2022-12-25T13:10:22.000Z','2022-12-25T13:10:22.000Z',40,38,'2023-01-11T10:12:54.808Z','2023-01-11T10:12:54.808Z')
     //   updatedAt: personData[i].id,
     var x = " (".concat(id, ",'").concat(topColor, "','").concat(bottomColor, "','").concat(ageRange, "','").concat(queueStartTime, "','{\"").concat(accessoriesList, "\"}',").concat(serviceStartTime == "NULL" ? "NULL" : "'".concat(serviceStartTime, "'"), ",").concat(serviceEndTime == "NULL" ? "NULL" : "'".concat(serviceEndTime, "'"), ",").concat("NULL,").concat(queueId, ",").concat(serviceRegionId, ",'").concat(createdAt, "', '").concat(updatedAt, "'),");
     str += x;
 }
 console.log(str);
+//# sourceMappingURL=generateLivePersons.js.map
