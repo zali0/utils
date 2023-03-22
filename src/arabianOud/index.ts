@@ -1,9 +1,6 @@
 let stores = [
   {
-    id: 2,
-  },
-  {
-    id: 3,
+    id: 1,
   },
 ];
 
@@ -25,6 +22,7 @@ let sqls: any = [];
 const generateKeeper = (storeId, date: Date, presence) => {
   let crud = new Date();
   let sql = `INSERT INTO keepers ("storeId", "snapshotTime", presence, "createdAt", "updatedAt") values (${storeId},'${date.toISOString()}', ${presence}, '${crud.toISOString()}', '${crud.toISOString()}');`;
+  console.log(sql)
   sqls.push(sql);
 };
 const generateVisitors = (storeId, date: Date) => {
@@ -51,219 +49,276 @@ for (let i = 0; i < stores.length; ++i) {
     currentDate.getDate()
   );
   startDate.setDate(startDate.getDate() + 1);
-  for (let x = 0; x < 364; ++x) {
+  for (let x = 0; x < 1; ++x) {
     console.log("-----------------------------------------");
-    // console.log(startDate);
-    for (let hour = 1; hour <= 24; ++hour) {
-      startDate = addHours(startDate, 1);
-      console.log(startDate.getHours());
-      if (startDate.getHours() == 8) {
-        let referenceTime = startDate;
-        let shopKeeperEnterTime = addMinutes(
-          startDate,
-          getRandomInt(1, 25) // 1 to 10 minutes
-        );
-        generateKeeper(stores[i].id, shopKeeperEnterTime, true);
-        let visitors = getRandomInt(3, 5);
-        let visitorTime = addMinutes(shopKeeperEnterTime, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 9) {
-        let referenceTime = startDate;
-        let visitors = getRandomInt(4, 8);
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 10) {
-        let referenceTime = startDate;
-        let visitors = getRandomInt(5, 8);
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 11) {
-        let referenceTime = startDate;
-        let visitors = getRandomInt(15, 18);
-        console.log("VISISTORS AT 11",visitors)
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 12) {
-        let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
-        generateKeeper(stores[i].id, referenceTime, false);
-      }
-      if (startDate.getHours() == 16) {
-        //4
-        let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
-        generateKeeper(stores[i].id, referenceTime, true);
-        var visitors = getRandomInt(3, 7);
-        var visitorTime = addMinutes(referenceTime, getRandomInt(5, 7));
-        for (var m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
-        }
-        var snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-
-      if (startDate.getHours() == 17) {
-        //5
-        let referenceTime = startDate;
-        let visitors = getRandomInt(8, 11);
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 18) {
-        //6
-        let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
-        generateKeeper(stores[i].id, referenceTime, false);
-      }
-      if (startDate.getHours() == 19) {
-        //7
-        let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
-        generateKeeper(stores[i].id, referenceTime, true);
-        var visitors = getRandomInt(9, 11);
-        var visitorTime = addMinutes(referenceTime, getRandomInt(6, 7));
-        for (var m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
-        }
-        var snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 20) {
-        //8
-        let referenceTime = startDate;
-        let visitors = getRandomInt(10, 12);
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 21) {
-        //9
-        console.log("HOUR 21");
-        let referenceTime = startDate;
-        let visitors = getRandomInt(10, 12);
-        console.log("NO: of Visitors: ", visitors);
-        let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
-        for (let m = 0; m < visitors; ++m) {
-          console.log(
-            "VISITOR :",
-            visitorTime.getHours(),
-            visitorTime.getMinutes()
-          );
-          generateVisitors(stores[i].id, visitorTime);
-          visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
-        }
-        let snapshotTime = addHours(referenceTime, 1);
-        generateOccupancy(
-          stores[i].id,
-          snapshotTime,
-          getRandomInt(visitors - 1, visitors)
-        );
-      }
-      if (startDate.getHours() == 22) {
-        // 10
-        let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
-        generateKeeper(stores[i].id, referenceTime, false);
-      }
+    let startHour = getRandomInt(8, 10)
+    console.log(startHour)
+    let startMinutes = 0;
+    if (startHour === 8) {
+      startMinutes = getRandomInt(45, 60)
     }
+    else {
+      startMinutes = getRandomInt(0, 45)
+    }
+
+    let enterTime = new Date();
+    enterTime.setHours(startHour)
+    enterTime.setMinutes(startMinutes)
+
+
+    generateKeeper(stores[i].id, enterTime, true);
+
+
+    const generateNewTimeInterval = () => {
+
+    }
+    let referenceTime = enterTime
+    let keeperPresence = true;
+    let gaps = getRandomInt(4, 6)
+    for (let z = 8; z <= 24; ++z) {
+      // enterTime to some time.
+      console.log("I AM HERE")
+      let hour = referenceTime.getHours();
+      let minutes = referenceTime.getMinutes();
+      console.log("referenceTime")
+      console.log(referenceTime)
+      console.log(hour,minutes)
+      // if (keeperPresence) {
+      //   let visitors = getRandomInt(3, 5);
+      //   let visitorTime = addMinutes(referenceTime, getRandomInt(5, 7));
+      //   for (let m = 0; m < visitors; ++m) {
+      //     generateVisitors(stores[i].id, visitorTime);
+      //     visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+      //   }
+      //   let snapshotTime = addHours(referenceTime, 1);
+      //   generateOccupancy(
+      //     stores[i].id,
+      //     snapshotTime,
+      //     getRandomInt(visitors - 1, visitors)
+      //   );
+
+      //   keeperPresence = false;
+      // } else {
+      //   generateOccupancy(
+      //     stores[i].id,
+      //     referenceTime,
+      //     1
+      //   );
+      //   keeperPresence = false;
+      // }
+    }
+
   }
+  //   for (let hour = 1; hour <= 24; ++hour) {
+  //     startDate = addHours(startDate, 1);
+  //     console.log(startDate.getHours());
+  //     if (startDate.getHours() == 8) {
+  //       let referenceTime = startDate;
+  //       let shopKeeperEnterTime = addMinutes(
+  //         startDate,
+  //         getRandomInt(1, 25) // 1 to 10 minutes
+  //       );
+  //       generateKeeper(stores[i].id, shopKeeperEnterTime, true);
+  //       let visitors = getRandomInt(3, 5);
+  //       let visitorTime = addMinutes(shopKeeperEnterTime, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 9) {
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(4, 8);
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 10) {
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(5, 8);
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 11) {
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(15, 18);
+  //       console.log("VISISTORS AT 11", visitors)
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 12) {
+  //       let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
+  //       generateKeeper(stores[i].id, referenceTime, false);
+  //     }
+  //     if (startDate.getHours() == 16) {
+  //       //4
+  //       let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
+  //       generateKeeper(stores[i].id, referenceTime, true);
+  //       var visitors = getRandomInt(3, 7);
+  //       var visitorTime = addMinutes(referenceTime, getRandomInt(5, 7));
+  //       for (var m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
+  //       }
+  //       var snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+
+  //     if (startDate.getHours() == 17) {
+  //       //5
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(8, 11);
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 18) {
+  //       //6
+  //       let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
+  //       generateKeeper(stores[i].id, referenceTime, false);
+  //     }
+  //     if (startDate.getHours() == 19) {
+  //       //7
+  //       let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
+  //       generateKeeper(stores[i].id, referenceTime, true);
+  //       var visitors = getRandomInt(9, 11);
+  //       var visitorTime = addMinutes(referenceTime, getRandomInt(6, 7));
+  //       for (var m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
+  //       }
+  //       var snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 20) {
+  //       //8
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(10, 12);
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(10, 16));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 21) {
+  //       //9
+  //       console.log("HOUR 21");
+  //       let referenceTime = startDate;
+  //       let visitors = getRandomInt(10, 12);
+  //       console.log("NO: of Visitors: ", visitors);
+  //       let visitorTime = addMinutes(startDate, getRandomInt(5, 7));
+  //       for (let m = 0; m < visitors; ++m) {
+  //         console.log(
+  //           "VISITOR :",
+  //           visitorTime.getHours(),
+  //           visitorTime.getMinutes()
+  //         );
+  //         generateVisitors(stores[i].id, visitorTime);
+  //         visitorTime = addMinutes(visitorTime, getRandomInt(5, 7));
+  //       }
+  //       let snapshotTime = addHours(referenceTime, 1);
+  //       generateOccupancy(
+  //         stores[i].id,
+  //         snapshotTime,
+  //         getRandomInt(visitors - 1, visitors)
+  //       );
+  //     }
+  //     if (startDate.getHours() == 22) {
+  //       // 10
+  //       let referenceTime = addMinutes(startDate, getRandomInt(7, 15));
+  //       generateKeeper(stores[i].id, referenceTime, false);
+  //     }
+  //   }
+  // }
 }
 
 let string = "";
